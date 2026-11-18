@@ -54,7 +54,7 @@ const CONFIG = {
     },
     {
       "n": 7,
-      "l": "Specialist engineers"
+      "l": "Engineers & designers"
     },
     {
       "n": 100,
@@ -1407,6 +1407,12 @@ const CONFIG = {
       "photo": "rajanish-singh.jpg"
     },
     {
+      "name": "Ritik Pandey",
+      "role": "UI/UX Designer",
+      "text": "Designs intuitive user journeys, wireframes, modern design systems, and clickable prototypes.",
+      "photo": "ritik-pandey.jpg"
+    },
+    {
       "name": "Rahul Kumar",
       "role": "Frontend Engineer",
       "text": "Crafts fast, accessible, pixel-perfect interfaces.",
@@ -1417,12 +1423,6 @@ const CONFIG = {
       "role": "Backend Engineer",
       "text": "Builds secure APIs, databases and scalable services.",
       "photo": "jyotisha.png"
-    },
-    {
-      "name": "Ritik Pandey",
-      "role": "Mobile Application Engineer",
-      "text": "Engineers high-performance Android & cross-platform apps, AdMob monetization, and Play Store releases.",
-      "photo": "ritik-pandey.jpg"
     },
     {
       "name": "Yash Srivastava",
