@@ -93,19 +93,7 @@ Open `config.js` in any text editor (VS Code, Notepad, etc.). All settings are w
    ```
 3. Refresh `index.html`.
 
----
 
-## How to Deploy Manually
-
-When you are ready to put the website online, you can upload the folder contents directly to any host:
-
-- **cPanel / Hostinger / GoDaddy / Apache / Nginx:**
-  - Upload the files (`index.html`, `config.js`, `css/`, `js/`, `assets/`, `robots.txt`, `sitemap.xml`) to the `public_html/` or `/var/www/html/` directory.
-- **GitHub Pages:**
-  - Push the repository to GitHub and enable GitHub Pages on the `main` branch.
-- **Netlify / Vercel / Cloudflare Pages:**
-  - Drag-and-drop the `rks-technology-website` folder directly into Netlify Drop or Vercel, with no build command specified.
-- **Firebase Hosting:**
   - Run `firebase init hosting` and set the public directory to `.` (current directory).
 # RKS-Technology-website
 # RKS-Technology-website
