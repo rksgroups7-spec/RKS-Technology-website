@@ -53,13 +53,14 @@
     desktop: '<div class="dw"><div><i></i><i></i><i></i></div><s></s><s></s><s></s><s></s></div>',
     game: '<div style="display:flex;gap:18px;align-items:flex-end;height:100px"><div class="pl2" style="margin:0"></div><div class="cn"><i></i><i></i><i></i></div></div>',
     care: '<div class="pp"><i></i><i></i><i></i><i></i></div>',
+    college: '<div class="vbr" style="border-color:var(--p)"><div style="font-size:28px;margin-bottom:4px">🎓</div><b>Minor &amp; Major</b><div style="font-size:12px;color:var(--mut)">Code · Report · Viva</div></div>',
     aiapp: '<div class="ainet">' + [[8, 50], [38, 15], [38, 50], [38, 85], [70, 28], [70, 72], [92, 50]].map((q, i) => `<i style="left:${q[0]}%;top:${q[1]}%;animation-delay:${-i * .35}s"></i>`).join("") + '</div>',
     chatbot: '<div class="cbv"><s></s><s class="r"></s><s class="t"></s></div>',
     rag: '<div class="ragv"><b>📄</b><b>📄</b><b>📄</b><span>→</span><em>✓ Answer · p.4</em></div>'
   };
   const RINGS = [{ inset: 30, t: 34, dir: "normal", from: 0, to: 4 }, { inset: 15, t: 52, dir: "reverse", from: 4, to: 10 }, { inset: 0, t: 74, dir: "normal", from: 10, to: 16 }];
   const PH = ["Discuss", "Design", "Build", "Test", "Deploy"], PHR = [.08, .2, .45, .17, .1];
-  const nav = [["About", "#about"], ["Services", "#services"], ["Process", "#process"], ["Work", "#work"], ["Pricing", "#pricing"], ["Team", "#team"], ["Blog", "#blog"], ["Contact", "#contact"]];
+  const nav = [["About", "#about"], ["Services", "#services"], ["Process", "#process"], ["Work", "#work"], ["Pricing", "#pricing"], ["Team", "#team"], ["Blog", "#blog"], ["Careers", "#careers"], ["Contact", "#contact"]];
 
   // --------------------------------------------------------------------------
   // RENDER HOME PAGE
@@ -69,7 +70,7 @@
     $("#mn").innerHTML = nav.map(n => `<a href="${n[1]}">${n[0]}</a>`).join("");
     $("#wa").href = `https://wa.me/${C.brand.whatsapp}`;
     $("#mw").href = `https://wa.me/${C.brand.whatsapp}`;
-    $("#rail").innerHTML = nav.filter(n => n[1].startsWith("#") && n[1] !== "#blog").map(n => `<a href="${n[1]}" data-l="${n[0]}" aria-label="${n[0]}"></a>`).join("");
+    $("#rail").innerHTML = nav.filter(n => n[1].startsWith("#") && n[1] !== "#blog" && n[1] !== "#careers").map(n => `<a href="${n[1]}" data-l="${n[0]}" aria-label="${n[0]}"></a>`).join("");
 
     $("#top").innerHTML = `
 <section id="hero"><div class="bl" style="width:440px;height:440px;background:#3b4bff;left:-130px;top:40px"></div><div class="bl" style="width:380px;height:380px;background:#ff6b3d;right:-90px;top:260px;animation-delay:-6s"></div><div class="bl" style="width:320px;height:320px;background:#00b587;left:40%;bottom:-140px;animation-delay:-10s"></div>
@@ -79,7 +80,7 @@
 <div class="w"><div class="str">${C.stats.map((s, i) => `<div class="stt rv z" style="--d:${i * .1}s"><b data-n="${s.n}" data-p="${e(s.p || "")}" data-s="${e(s.s || "")}">0</b><span>${e(s.l)}</span></div>`).join("")}</div></div>
 <section id="about"><div class="w ab"><div ${rv("l")}><span class="k">${e(C.about.label || C.about.k)}</span><h2>${e(C.about.title || C.about.t)}</h2><div style="margin-top:26px">${(C.about.paragraphs || C.about.p).map(p => `<p>${e(p)}</p>`).join("")}</div></div><div class="sp rv r">${(C.about.points || C.about.pts).map(p => { const icon = p.icon || p[0], tit = p.title || p[1], txt = p.text || p[2]; return `<div><b>${icon}</b><div><h4>${e(tit)}</h4><p>${e(txt)}</p></div></div>` }).join("")}</div></div></section>
 ${C.engineeringComparison ? `<section id="engineering" style="padding-top:20px;padding-bottom:70px"><div class="w"><div class="c"><span class="k">${e(C.engineeringComparison.label)}</span><h2 class="c rv">${e(C.engineeringComparison.title)}</h2><p class="ld rv">${e(C.engineeringComparison.lead)}</p></div><div class="cmp-grid"><div class="cmp-card vibe rv l"><span class="cmp-badge">⚠️ ${e(C.engineeringComparison.vibeCoder.badge)}</span><h3>${e(C.engineeringComparison.vibeCoder.tagline)}</h3><p class="tagl">What happens when software is built without engineering discipline:</p><ul class="cmp-list">${C.engineeringComparison.vibeCoder.points.map(pt => `<li><i>✕</i><span>${e(pt)}</span></li>`).join("")}</ul></div><div class="cmp-card eng rv r"><span class="cmp-badge">✓ ${e(C.engineeringComparison.engineer.badge)}</span><h3>${e(C.engineeringComparison.engineer.tagline)}</h3><p class="tagl">How RKS software engineers build your software to scale and last:</p><ul class="cmp-list">${C.engineeringComparison.engineer.points.map(pt => `<li><i>✓</i><span>${e(pt)}</span></li>`).join("")}</ul></div></div></div></section>` : ""}
-<section id="services" style="background:var(--cd)"><div class="w"><span class="k">Services</span><h2 ${rv()}>One structured catalogue for everything you need</h2><p class="ld rv">Nine focused services in four groups. Each has a clear starting price, and every extra feature is itemised separately.</p>
+<section id="services" style="background:var(--cd)"><div class="w"><span class="k">Services</span><h2 ${rv()}>One structured catalogue for everything you need</h2><p class="ld rv">${C.services.length} focused services in ${C.groups.length} groups. Each has a clear starting price, and every extra feature is itemised separately.</p>
 <div class="ch sfl" id="sfl"><button class="on" data-g="all">All services</button>${C.groups.map(g => `<button data-g="${g.key}">${e(g.title)}</button>`).join("")}</div>
 ${C.groups.map(g => `<div class="sg rv" data-g="${g.key}"><div class="sgh"><h3>${e(g.title)}</h3><p>${e(g.text)}</p></div><div class="sv">${C.services.filter(s => s.group === g.key).map(s => `<article class="cd bn"><div class="vz">${BV[s.key] || ""}</div><span class="pr2">${e(s.priceLabel)} <b>${e(s.price)}</b></span><h3>${e(s.name)}</h3><p>${e(s.card)}</p><ul class="ul">${s.bullets.map(f => `<li>${e(f)}</li>`).join("")}</ul><a class="more" href="#services-${s.slug}">View details and pricing →</a></article>`).join("")}</div></div>`).join("")}</div></section>
 <section id="build" style="background:var(--cd)"><div class="w"><div class="c"><span class="k">Watch it build</span><h2 class="c rv">This is how your product comes to life</h2><p class="ld rv">Choose what you want to build and watch the code and the live preview appear side by side.</p></div><div class="ch" id="ch" style="justify-content:center;margin-bottom:30px">${Object.keys(DEMO).map((k, i) => `<button class="${i ? "" : "on"}">${e(k)}</button>`).join("")}</div><div class="ide rv z" style="max-width:920px;margin:auto"><div class="tbar"><i></i><i></i><i></i><span id="cf">index.html</span></div><div class="pn"><div id="cd"></div><div id="pv"></div></div><div id="st">Building…</div></div></div></section>
@@ -91,10 +92,10 @@ ${C.groups.map(g => `<div class="sg rv" data-g="${g.key}"><div class="sgh"><h3>$
 <section id="trust" style="background:var(--cd)"><div class="w"><div class="c"><span class="k">Transparency</span><h2 class="c rv">Watch your project move. No surprises.</h2><p class="ld rv">Every client gets a live board like this. You always know what is done, what is in progress and what is next.</p></div><div class="kb rv" id="kb"></div></div></section>
 <section id="pricing"><div class="w"><div class="c"><span class="k">Pricing</span><h2 class="c rv">Clear starting prices. Pay only for what you add.</h2><p class="ld rv">From low-cost launchpads to advanced software solutions. Every service has a base price that covers its core scope, and extra features are itemised separately.</p></div>
 <div class="spectrum-bar rv">
-  <div class="spec-box"><span class="sp-tag">Tier 1: Starter</span><b>From ₹4,999</b><p>Static websites, portfolio pages & startup launchpads with WhatsApp lead capture.</p></div>
-  <div class="spec-box"><span class="sp-tag">Tier 2: Growth</span><b>From ₹14,999</b><p>Dynamic web apps & mobile apps with Google AdMob / AdSense and payment gateways.</p></div>
-  <div class="spec-box"><span class="sp-tag">Tier 3: Advanced</span><b>From ₹24,999</b><p>Custom desktop software, 2D games, enterprise AI chatbots & RAG systems.</p></div>
-  <div class="spec-box"><span class="sp-tag">Tier 4: DevOps</span><b>From ₹999/mo</b><p>Cloud server deployment (AWS/GCP/VPS), Docker, CI/CD, SSL & ongoing care.</p></div>
+  <div class="spec-box"><span class="sp-tag">Tier 1: Starter &amp; Student</span><b>From ₹2,999</b><p>College projects (code + report + viva) &amp; static business launchpads.</p></div>
+  <div class="spec-box"><span class="sp-tag">Tier 2: Growth</span><b>From ₹14,999</b><p>Dynamic web apps &amp; mobile apps with Google AdMob / AdSense and payment gateways.</p></div>
+  <div class="spec-box"><span class="sp-tag">Tier 3: Advanced</span><b>From ₹24,999</b><p>Custom desktop software, 2D games, enterprise AI chatbots &amp; RAG systems.</p></div>
+  <div class="spec-box"><span class="sp-tag">Tier 4: DevOps</span><b>From ₹999/mo</b><p>Cloud server deployment (AWS/GCP/VPS), Docker, CI/CD, SSL &amp; ongoing care.</p></div>
 </div>
 <div class="hp3">${[["1", "Base price", "Covers the core scope listed on each service page."], ["2", "Add extras", "Pick optional features. Each one has its own clear price."], ["3", "Fixed quote", "You get one itemised, fixed quote in writing before work begins."]].map((x, i) => `<div class="cd rv" style="--d:${i * .1}s"><b class="num">${x[0]}</b><h3>${x[1]}</h3><p>${x[2]}</p></div>`).join("")}</div>
 <div class="cat">${C.groups.map((g, gi) => `<div class="cd rv" style="--d:${gi * .08}s"><h3>${e(g.title)}</h3><div class="crow">${C.services.filter(s => s.group === g.key).map(s => `<a href="#services-${s.slug}"><span>${e(s.name)}</span><b>${e(s.priceLabel)} ${e(s.price)}</b></a>`).join("")}</div></div>`).join("")}</div>
@@ -124,7 +125,7 @@ ${(C.testimonials && C.testimonials.length) ? `<section style="padding-bottom:40
 </form>
 </div></section>`;
 
-    $("#ft").innerHTML = `<div class="w"><div class="fg"><div class="ft-bio"><div class="ft-logo"><img src="assets/logo.png" class="logo-light" alt="${e(C.brand.name)}" height="42"><img src="assets/logo-dark.png" class="logo-dark" alt="${e(C.brand.name)}" height="42"></div><p>${e(C.brand.aim || "Low-cost to advanced software solutions built by real software engineers. We believe in process, industry standards, scalability, maintainability, production cloud deployment, and monetization.")}</p><div class="ft-loc">${e(C.brand.location)}</div></div><div><b>Company</b>${nav.slice(0, 6).map(n => `<a href="${n[1]}">${n[0]}</a>`).join("")}<a href="#blog">Blog</a></div><div><b>Services</b>${C.services.map(s => `<a href="#services-${s.slug}">${e(s.name)}</a>`).join("")}</div><div><b>Connect</b><a href="mailto:${e(C.brand.email)}">${e(C.brand.email)}</a><a href="https://wa.me/${e(C.brand.whatsapp)}" target="_blank" rel="noopener">WhatsApp</a>${Object.entries(C.brand.social || {}).filter(([k, v]) => /^https?:\/\//.test(v)).map(([k, v]) => `<a href="${e(v)}" target="_blank" rel="noopener">${e(k)}</a>`).join("")}</div></div><div class="big-ft" aria-hidden="true">${e(C.brand.short)} TECHNOLOGY</div><div class="cp"><span>© ${new Date().getFullYear()} ${e(C.brand.name)}. All rights reserved.</span><span><a href="#privacy-policy" style="display:inline;margin-right:16px">Privacy Policy</a><a href="#terms-of-service" style="display:inline">Terms of Service</a></span></div></div>`;
+    $("#ft").innerHTML = `<div class="w"><div class="fg"><div class="ft-bio"><div class="ft-logo"><img src="assets/logo.png" class="logo-light" alt="${e(C.brand.name)}" height="42"><img src="assets/logo-dark.png" class="logo-dark" alt="${e(C.brand.name)}" height="42"></div><p>${e(C.brand.aim || "Low-cost to advanced software solutions built by real software engineers. We believe in process, industry standards, scalability, maintainability, production cloud deployment, and monetization.")}</p><div class="ft-loc">${e(C.brand.location)}</div></div><div><b>Company</b>${nav.slice(0, 6).map(n => `<a href="${n[1]}">${n[0]}</a>`).join("")}<a href="#blog">Blog</a><a href="#careers">Careers</a></div><div><b>Services</b>${C.services.map(s => `<a href="#services-${s.slug}">${e(s.name)}</a>`).join("")}</div><div><b>Connect</b><a href="mailto:${e(C.brand.email)}">${e(C.brand.email)}</a><a href="https://wa.me/${e(C.brand.whatsapp)}" target="_blank" rel="noopener">WhatsApp</a>${Object.entries(C.brand.social || {}).filter(([k, v]) => /^https?:\/\//.test(v)).map(([k, v]) => `<a href="${e(v)}" target="_blank" rel="noopener">${e(k)}</a>`).join("")}</div></div><div class="big-ft" aria-hidden="true">${e(C.brand.short)} TECHNOLOGY</div><div class="cp"><span>© ${new Date().getFullYear()} ${e(C.brand.name)}. All rights reserved.</span><span><a href="#privacy-policy" style="display:inline;margin-right:16px">Privacy Policy</a><a href="#terms-of-service" style="display:inline">Terms of Service</a></span></div></div>`;
 
     initHomeInteractions();
   }
@@ -245,7 +246,227 @@ ${(C.testimonials && C.testimonials.length) ? `<section style="padding-bottom:40
       return { title: "Terms of Service", html };
     }
 
+    // 7. Careers Page
+    if (key === "careers") {
+      const car = C.careers || {};
+      const isOpen = Boolean(car.isOpen && car.openings && car.openings.length);
+
+      const defaultRoles = [
+        "Frontend Software Engineer (React / Next.js)",
+        "Backend Software Engineer (Node.js / Python / APIs)",
+        "Mobile Application Engineer (Flutter / Android / iOS)",
+        "UI/UX Designer",
+        "DevOps & Cloud Engineer",
+        "AI / ML Engineer",
+        "QA & Test Automation Engineer",
+        "College Project Mentor / Developer",
+        "Other / General Talent Pool"
+      ];
+      const activeTitles = (car.openings || []).map(j => j.title);
+      const rolesList = [...new Set([...activeTitles, ...defaultRoles])];
+      const initialRole = activeTitles[0] || defaultRoles[0];
+
+      let openingsHtml = "";
+      if (isOpen) {
+        const depts = ["all", ...new Set(car.openings.map(j => j.department || "Engineering"))];
+        const filterBarHtml = depts.length > 2 ? `
+          <div class="job-filter-bar" aria-label="Filter job openings by department">
+            ${depts.map(d => `<button class="${d === "all" ? "on" : ""}" data-dept="${e(d)}">${d === "all" ? `All Openings (${car.openings.length})` : e(d)}</button>`).join("")}
+          </div>
+        ` : "";
+
+        openingsHtml = filterBarHtml + car.openings.map((job, idx) => `
+          <div class="job-card rv ${idx === 0 ? "selected" : ""}" data-dept="${e(job.department || "Engineering")}" id="job-${e(job.id || idx)}">
+            <div class="job-header" style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px">
+              <div>
+                <span class="cmp-badge" style="background:#3b4bff1a;color:var(--p);margin-bottom:8px">${e(job.department || "Engineering")}</span>
+                <h3 style="font-size:24px;margin-bottom:4px">${e(job.title)}</h3>
+              </div>
+            </div>
+            <div class="job-meta">
+              <span class="active-tag">● Actively Hiring</span>
+              <span>📍 ${e(job.location || "100% Remote")}</span>
+              <span>⏱ ${e(job.type || "Full-time")}</span>
+              <span>💼 ${e(job.experience || "0 - 3 Years / Freshers Welcome")}</span>
+            </div>
+            <p style="color:var(--mut);font-size:15.5px;line-height:1.6;margin-bottom:18px">${e(job.description)}</p>
+            ${job.responsibilities && job.responsibilities.length ? `
+              <div class="job-sub">Key Responsibilities:</div>
+              <ul class="job-list">${job.responsibilities.map(r => `<li>${e(r)}</li>`).join("")}</ul>
+            ` : ""}
+            ${job.requirements && job.requirements.length ? `
+              <div class="job-sub">What We Look For:</div>
+              <ul class="job-list">${job.requirements.map(req => `<li>${e(req)}</li>`).join("")}</ul>
+            ` : ""}
+            <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap">
+              <button type="button" class="bt apply-role-btn" data-role="${e(job.title)}">
+                Select &amp; Apply for this Role ↓
+              </button>
+            </div>
+          </div>
+        `).join("");
+      } else {
+        openingsHtml = `
+          <div class="no-jobs-box rv">
+            <span class="cmp-badge" style="background:#00b58718;color:#00b587">● TALENT POOL OPEN</span>
+            <h2 style="font-size:clamp(26px,3.4vw,38px);margin:12px 0">No Active Openings Right Now</h2>
+            <p style="font-size:17px;color:var(--mut);max-width:760px;line-height:1.6;margin-bottom:24px">
+              ${e(car.noOpeningsMessage || "We do not have open positions right now, but we are always eager to meet exceptional software engineers, UI/UX designers, and problem solvers.")}
+            </p>
+            <div style="background:var(--bg);border:1px solid var(--ln);border-radius:18px;padding:24px;margin-bottom:28px">
+              <h4 style="font-size:18px;margin-bottom:8px">Are you an exceptional Software Engineer or Designer?</h4>
+              <p style="font-size:15px;color:var(--mut);line-height:1.65">
+                We are remote-first, engineering-focused, and grow by adding people who care about clean code, architecture, and maintainability. Please fill out our application form below with your profile, GitHub, or resume link, and submit it directly to our team via WhatsApp or Email.
+              </p>
+            </div>
+            <div class="hc" style="margin:0">
+              <a class="bt" href="#apply-section">Fill Application Form Below ↓</a>
+            </div>
+          </div>
+        `;
+      }
+
+      const perksHtml = (car.perks || []).map((p, i) => `
+        <div class="perk-card rv" style="--d:${(i % 3) * .08}s">
+          <span class="ic">${p.icon}</span>
+          <h3>${e(p.title)}</h3>
+          <p>${e(p.text)}</p>
+        </div>
+      `).join("");
+
+      const valuesHtml = (car.values || []).map((v, i) => `
+        <div class="val-card rv" style="--d:${i * .1}s">
+          <div class="vnum">${e(v.num)}</div>
+          <h3>${e(v.title)}</h3>
+          <p>${e(v.text)}</p>
+        </div>
+      `).join("");
+
+      const heroExtra = `
+        <div class="chips2"><span>100% Remote</span><span>Software Engineers, Not Vibe Coders</span><span>Merit &amp; Direct Impact</span></div>
+        <div class="hc" style="margin-top:16px"><a class="bt" href="#apply-section">Apply / Drop Resume Form ↓</a><a class="bt o" href="#openings">View Positions</a></div>
+      `;
+
+      const html = renderHero([["#top", "Home"], "Careers"], car.title || "Careers at RKS Technology", car.subtitle || "Build scalable software that makes clients say wow. Work with real software engineers.", heroExtra) +
+        `<section class="sec" id="openings"><div class="w"><span class="k">Positions</span><h2>Current Opportunities</h2>${openingsHtml}</div></section>
+        <section class="sec alt2"><div class="w"><span class="k">Why RKS Technology</span><h2>Built by engineers, for engineers</h2><p class="ld">We strip away corporate theater so you can focus on building high-performance, maintainable software.</p><div class="perks-grid">${perksHtml}</div></div></section>
+        <section class="sec"><div class="w"><span class="k">Our Culture</span><h2>The principles that guide how we build</h2><div class="values-grid">${valuesHtml}</div></div></section>
+        <section class="sec alt2" id="apply-section"><div class="w" style="max-width:860px"><div class="apply-box rv">
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:8px">
+          <span class="k" style="margin:0">Application Form</span>
+          <span id="selected-role-badge" style="font:700 13px 'JetBrains Mono',monospace;color:var(--p);background:color-mix(in srgb,var(--p) 12%,transparent);padding:5px 14px;border-radius:99px;border:1px solid color-mix(in srgb,var(--p) 25%,transparent)">
+            Selected: ${e(initialRole)}
+          </span>
+        </div>
+        <h2>Apply for an Open Position</h2>
+        <p style="color:var(--mut);margin-bottom:24px">Please choose your role and fill in your details below. Once completed, you can submit your application directly to our engineering team via <b>WhatsApp</b> or <b>Email</b>.</p>
+        <form class="career-form" id="career-fm">
+          <div class="r2">
+            <div>
+              <label>Full Name *</label>
+              <input name="cname" placeholder="e.g. Rahul Sharma" required aria-label="Full Name">
+            </div>
+            <div>
+              <label>WhatsApp / Phone Number *</label>
+              <input name="cphone" type="tel" placeholder="e.g. +91 98765 43210" required aria-label="Phone Number">
+            </div>
+          </div>
+          <div class="r2">
+            <div>
+              <label>Email Address *</label>
+              <input name="cemail" type="email" placeholder="e.g. rahul@example.com" required aria-label="Email Address">
+            </div>
+            <div>
+              <label>Role of Interest *</label>
+              <select name="crole" aria-label="Role of Interest">
+                ${activeTitles.length ? `<optgroup label="Active Openings">${activeTitles.map(r => `<option value="${e(r)}">${e(r)}</option>`).join("")}</optgroup>` : ""}
+                <optgroup label="General Talent Pool">${defaultRoles.map(r => `<option value="${e(r)}">${e(r)}</option>`).join("")}</optgroup>
+              </select>
+            </div>
+          </div>
+          <div class="r2">
+            <div>
+              <label>Experience Level *</label>
+              <select name="cexp" aria-label="Experience Level">
+                <option>Fresher / College Graduate (2024 - 2026 Batch)</option>
+                <option>0 - 1 Year Experience</option>
+                <option>1 - 3 Years Experience</option>
+                <option>3+ Years / Senior Engineer</option>
+                <option>College Student (Internship / Project Work)</option>
+              </select>
+            </div>
+            <div>
+              <label>Portfolio / GitHub / Resume Link *</label>
+              <input name="clinks" placeholder="GitHub, LinkedIn, or Google Drive URL" required aria-label="Portfolio or Resume Link">
+            </div>
+          </div>
+          <div>
+            <label>About Your Work &amp; Best Project *</label>
+            <textarea name="cmsg" rows="3" placeholder="Tell us briefly about the best software or system you have built, your tech stack, or why you want to work with RKS Technology..." required aria-label="Message"></textarea>
+          </div>
+          <div class="apply-actions">
+            <button type="submit" name="channel" value="whatsapp" class="bt">Send Application via WhatsApp 💬</button>
+            <button type="submit" name="channel" value="email" class="bt o">Send Application via Email ✉️</button>
+          </div>
+          <div id="c-fs" style="font-weight:700;font-size:14.5px;line-height:1.5;margin-top:14px"></div>
+        </form>
+        </div></div></section>
+        ${renderCta("Want to build software with us?")}`;
+
+      return { title: car.title || "Careers", html };
+    }
+
     return null;
+  }
+
+  // --------------------------------------------------------------------------
+  // NAVIGATION ACTIVE STATE HANDLER
+  // --------------------------------------------------------------------------
+  function updateNavHighlight() {
+    const raw = decodeURIComponent(location.hash.slice(1));
+    const isSub = document.body.classList.contains("pgv") || (raw && !["", "top", "about", "services", "build", "process", "work", "stack", "upgrade", "quality", "trust", "pricing", "team", "faq", "contact"].includes(raw));
+
+    if (isSub) {
+      // Subpage active link highlight
+      $$("#mn a").forEach(a => {
+        const href = a.getAttribute("href") || "";
+        let on = false;
+        if (href === "#careers" && (raw === "careers" || raw === "openings" || raw === "apply-section" || raw.startsWith("careers-"))) on = true;
+        else if (href === "#blog" && (raw === "blog" || raw.startsWith("blog-"))) on = true;
+        else if (href === "#services" && raw.startsWith("services-")) on = true;
+        else if (href === "#work" && raw.startsWith("work-")) on = true;
+        a.classList.toggle("on", on);
+      });
+      $$("#rail a").forEach(a => a.classList.remove("on"));
+      return;
+    }
+
+    // Home page section highlight
+    const homeLinks = Array.from($$("#mn a")).filter(a => {
+      const h = a.getAttribute("href") || "";
+      return h.startsWith("#") && h !== "#top" && h !== "#blog" && h !== "#careers";
+    });
+
+    let activeHref = null;
+    homeLinks.forEach(a => {
+      const h = a.getAttribute("href");
+      const sec = document.querySelector(h);
+      if (sec) {
+        const r = sec.getBoundingClientRect();
+        if (r.top <= innerHeight * 0.45 && r.bottom > 80) {
+          activeHref = h;
+        }
+      }
+    });
+
+    $$("#mn a").forEach(a => {
+      const h = a.getAttribute("href");
+      a.classList.toggle("on", activeHref ? h === activeHref : false);
+    });
+    $$("#rail a").forEach(a => {
+      const h = a.getAttribute("href");
+      a.classList.toggle("on", activeHref ? h === activeHref : false);
+    });
   }
 
   // --------------------------------------------------------------------------
@@ -264,6 +485,7 @@ ${(C.testimonials && C.testimonials.length) ? `<section style="padding-bottom:40
       top.style.display = "";
       document.body.classList.remove("pgv");
       document.title = HOME_TITLE;
+      updateNavHighlight();
       if (raw && raw !== "top") {
         const el = document.getElementById(raw);
         if (el) setTimeout(() => el.scrollIntoView({ behavior: "smooth" }), 60);
@@ -271,15 +493,28 @@ ${(C.testimonials && C.testimonials.length) ? `<section style="padding-bottom:40
       return;
     }
 
+    // Support internal career anchors
+    let subKey = raw;
+    let anchorScroll = null;
+    if (raw === "openings" || raw === "apply-section") {
+      subKey = "careers";
+      anchorScroll = raw;
+    }
+
     // Try rendering as subpage
-    const res = renderSubpage(raw);
+    const res = renderSubpage(subKey);
     if (res) {
       top.style.display = "none";
       subpage.innerHTML = res.html;
       subpage.hidden = false;
       document.body.classList.add("pgv");
       document.title = `${res.title} | ${C.brand.name}`;
-      window.scrollTo(0, 0);
+      if (anchorScroll) {
+        const target = subpage.querySelector("#" + anchorScroll);
+        if (target) setTimeout(() => target.scrollIntoView({ behavior: "smooth" }), 80);
+      } else {
+        window.scrollTo(0, 0);
+      }
 
       // Accordion click bindings in subpage
       subpage.querySelectorAll(".fq button").forEach(b => {
@@ -289,14 +524,143 @@ ${(C.testimonials && C.testimonials.length) ? `<section style="padding-bottom:40
         };
       });
 
+      // Career application form binding
+      const cfm = subpage.querySelector("#career-fm");
+      if (cfm) {
+        let chosenChannel = "whatsapp";
+        cfm.querySelectorAll('button[type="submit"]').forEach(btn => {
+          btn.addEventListener("click", () => {
+            chosenChannel = btn.value || "whatsapp";
+          });
+        });
+
+        cfm.onsubmit = ev => {
+          ev.preventDefault();
+          const channel = (ev.submitter && ev.submitter.value) || chosenChannel || "whatsapp";
+          const fd = new FormData(cfm);
+          const name = (fd.get("cname") || "").trim();
+          const phone = (fd.get("cphone") || "").trim();
+          const email = (fd.get("cemail") || "").trim();
+          const role = fd.get("crole") || "Software Engineer";
+          const exp = fd.get("cexp") || "Fresher";
+          const links = (fd.get("clinks") || "").trim();
+          const msg = (fd.get("cmsg") || "").trim();
+
+          const cfs = subpage.querySelector("#c-fs");
+
+          if (!name || !phone || !email || !links || !msg) {
+            if (cfs) {
+              cfs.style.color = "#ff3b30";
+              cfs.textContent = "Please fill in all required fields marked with *.";
+            }
+            return;
+          }
+
+          if (channel === "whatsapp") {
+            const text = `Hello ${C.brand.name},\n\n*Career Application / Talent Pool*\n• *Name:* ${name}\n• *Role of Interest:* ${role}\n• *Experience Level:* ${exp}\n• *Phone:* ${phone}\n• *Email:* ${email}\n• *Portfolio / GitHub / Resume Link:* ${links}\n\n*About My Work & Best Project:*\n${msg}`;
+            const waNumber = (C.careers && C.careers.talentWhatsApp) || C.brand.whatsapp;
+            const url = `https://wa.me/${waNumber}?text=${encodeURIComponent(text)}`;
+            window.open(url, "_blank");
+
+            if (cfs) {
+              cfs.style.color = "var(--g)";
+              cfs.innerHTML = `✓ Opening WhatsApp with your application details! If WhatsApp did not open automatically, <a href="${url}" target="_blank" rel="noopener" style="color:var(--p);text-decoration:underline">click here to send via WhatsApp</a>.`;
+            }
+          } else {
+            // Email submission via mailto
+            const targetEmail = (C.careers && C.careers.talentEmail) || C.brand.email;
+            const subject = `Job Application: ${role} - ${name}`;
+            const body = `Hello ${C.brand.name} Team,\n\nI am applying for the position of ${role}.\n\nCandidate Details:\n• Name: ${name}\n• Role of Interest: ${role}\n• Experience: ${exp}\n• Phone / WhatsApp: ${phone}\n• Email: ${email}\n• Portfolio / GitHub / Resume Link: ${links}\n\nAbout My Work & Best Project:\n${msg}\n\n(Resume is attached or linked above)`;
+            const mailtoUrl = `mailto:${encodeURIComponent(targetEmail)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            window.location.href = mailtoUrl;
+
+            if (cfs) {
+              cfs.style.color = "var(--g)";
+              cfs.innerHTML = `✓ Opening your email client to send your application to ${targetEmail}! If your email client did not open, <a href="${mailtoUrl}" style="color:var(--p);text-decoration:underline">click here to send email</a>.`;
+            }
+          }
+        };
+      }
+
+      // Career job filter by department
+      subpage.querySelectorAll(".job-filter-bar button").forEach(btn => {
+        btn.onclick = () => {
+          subpage.querySelectorAll(".job-filter-bar button").forEach(b => b.classList.remove("on"));
+          btn.classList.add("on");
+          const dept = btn.getAttribute("data-dept");
+          subpage.querySelectorAll(".job-card").forEach(card => {
+            const cardDept = card.getAttribute("data-dept");
+            const show = (dept === "all" || cardDept === dept);
+            card.style.display = show ? "" : "none";
+          });
+        };
+      });
+
+      // Apply button smooth scroll and auto-selection
+      subpage.querySelectorAll(".apply-role-btn, a[href='#apply-section']").forEach(btn => {
+        btn.addEventListener("click", ev => {
+          ev.preventDefault();
+          const targetRole = btn.getAttribute("data-role");
+          const formSec = subpage.querySelector("#apply-section");
+          const sel = subpage.querySelector('select[name="crole"]');
+          const badge = subpage.querySelector("#selected-role-badge");
+
+          if (targetRole) {
+            // Highlight selected card
+            subpage.querySelectorAll(".job-card").forEach(c => c.classList.remove("selected"));
+            const card = btn.closest(".job-card");
+            if (card) card.classList.add("selected");
+
+            if (sel) {
+              let match = false;
+              for (let i = 0; i < sel.options.length; i++) {
+                if (sel.options[i].text.toLowerCase().includes(targetRole.toLowerCase())) {
+                  sel.selectedIndex = i;
+                  match = true;
+                  break;
+                }
+              }
+              if (!match) {
+                const opt = new Option(targetRole, targetRole, true, true);
+                sel.add(opt);
+              }
+              if (badge) badge.textContent = `Selected: ${sel.value}`;
+            }
+          }
+
+          if (formSec) {
+            formSec.scrollIntoView({ behavior: "smooth" });
+            const nameInp = subpage.querySelector('input[name="cname"]');
+            if (nameInp) setTimeout(() => nameInp.focus(), 350);
+          }
+        });
+      });
+
+      // Role selector dropdown change syncs with badge and cards
+      const croleSel = subpage.querySelector('select[name="crole"]');
+      if (croleSel) {
+        croleSel.onchange = () => {
+          const val = croleSel.value;
+          const badge = subpage.querySelector("#selected-role-badge");
+          if (badge) badge.textContent = `Selected: ${val}`;
+          subpage.querySelectorAll(".job-card").forEach(card => {
+            const h3 = card.querySelector("h3");
+            const isMatch = h3 && h3.textContent.trim().toLowerCase().includes(val.toLowerCase());
+            card.classList.toggle("selected", Boolean(isMatch));
+          });
+        };
+      }
+
       // Animate reveal elements
       subpage.querySelectorAll(".rv").forEach(n => n.classList.add("on"));
+      updateNavHighlight();
     } else {
       // Unknown hash, restore home
       subpage.hidden = true;
       top.style.display = "";
       document.body.classList.remove("pgv");
       document.title = HOME_TITLE;
+      updateNavHighlight();
     }
   }
 
@@ -350,13 +714,8 @@ ${(C.testimonials && C.testimonials.length) ? `<section style="padding-bottom:40
       $("#up").style.setProperty("--pg", Math.min(100, pct) + "%");
       if (y < 1400) $$(".bl").forEach((b, i) => b.style.translate = `0 ${y * (.06 + i * .04)}px`);
 
-      // Section highlight
-      const activeNavLinks = nav.filter(n => n[1].startsWith("#") && n[1] !== "#top" && n[1] !== "#blog");
-      const secs = activeNavLinks.map(n => $(n[1])).filter(Boolean);
-      let cur = -1;
-      secs.forEach((s, i) => { if (s.getBoundingClientRect().top < innerHeight * .4) cur = i; });
-      $$("#mn a").forEach((a, i) => a.classList.toggle("on", i === cur));
-      $$("#rail a").forEach((a, i) => a.classList.toggle("on", i === cur));
+      // Navigation highlight
+      updateNavHighlight();
 
       // Process timeline scroll progress
       const pSec = $("#process");
@@ -948,10 +1307,17 @@ ${(C.testimonials && C.testimonials.length) ? `<section style="padding-bottom:40
     // Initial route check (if page loaded with hash)
     route();
 
-    // Hide initial boot loader
-    setTimeout(() => {
+    // Hide initial boot loader immediately if on subpage or reduced motion
+    const isSub = Boolean(location.hash && location.hash !== "#top");
+    const hideLd = () => {
       const ld = $("#ld");
-      if (ld) ld.classList.add("x");
-    }, rm ? 0 : 1200);
+      if (ld && !ld.classList.contains("x")) ld.classList.add("x");
+    };
+    if (isSub || rm) {
+      hideLd();
+    } else {
+      setTimeout(hideLd, 600);
+    }
+    window.addEventListener("load", () => setTimeout(hideLd, 100));
   });
 })();

@@ -124,6 +124,11 @@ const CONFIG = {
       "key": "care",
       "title": "Care & Support",
       "text": "Testing, deployment and maintenance for software that is already live."
+    },
+    {
+      "key": "academic",
+      "title": "College & Academic Projects",
+      "text": "Minor and major software projects for engineering (B.Tech/BE), BCA, MCA, and diploma students."
     }
   ],
   "services": [
@@ -1073,6 +1078,116 @@ const CONFIG = {
         "weeks": null,
         "priceSuffix": "/month"
       }
+    },
+    {
+      "name": "College & Academic Projects",
+      "key": "college",
+      "slug": "college-projects",
+      "group": "academic",
+      "priceLabel": "from",
+      "price": "₹2,999",
+      "card": "Complete minor and major software project solutions for engineering (B.Tech/BE), BCA, MCA, and diploma students. Includes 100% working source code, documentation report, PPT, setup on your laptop, and viva guidance.",
+      "seoDescription": "College project service from ₹2,999: minor and major software projects for engineering, B.Tech, BCA, MCA students across Web, Mobile, AI/ML, Python, and Cloud with complete documentation, report, and viva support.",
+      "h1": "College and engineering software projects with code, report and viva prep",
+      "intro": "Need a high-scoring minor or major project for college? We build clean, fully working software solutions across Web, Mobile Apps, AI/ML, Python, and Cloud, complete with project reports, IEEE synopsis, PPT, laptop installation, and 1-on-1 viva guidance.",
+      "bullets": [
+        "100% working source code & database",
+        "Complete project report & synopsis",
+        "Professional presentation PPT",
+        "Direct setup on your laptop",
+        "1-on-1 code explanation & viva prep",
+        "Web, Mobile, AI/ML, Python & Cloud"
+      ],
+      "benefits": [
+        {
+          "title": "Guaranteed Working Code",
+          "text": "Tested and verified to run flawlessly on your laptop so your college demo never fails in front of professors."
+        },
+        {
+          "title": "Complete Documentation",
+          "text": "Synopsis, IEEE format SRS, architecture diagrams, DFD/ER diagrams, final project report, and slides."
+        },
+        {
+          "title": "1-on-1 Viva Preparation",
+          "text": "We explain every module, algorithm, and database query so you answer external examiner questions with total confidence."
+        },
+        {
+          "title": "Custom Topic & Review Changes",
+          "text": "Bring your own college-approved problem statement or choose from our curated trending IEEE project ideas."
+        }
+      ],
+      "included": [
+        "Full clean source code with clear comments",
+        "Database setup scripts and test dataset",
+        "Complete Project Report (.docx & .pdf)",
+        "Project Synopsis & SRS documentation",
+        "Final viva presentation slides (.pptx)",
+        "Remote setup/installation on your machine",
+        "1-on-1 code walkthrough & viva coaching",
+        "Free support until final college submission"
+      ],
+      "extras": [
+        {
+          "name": "Research paper / IEEE format draft",
+          "price": 1999
+        },
+        {
+          "name": "Live cloud deployment (Vercel / Render / VPS)",
+          "price": 1499
+        },
+        {
+          "name": "Advanced AI / Deep Learning model training",
+          "price": 2999
+        },
+        {
+          "name": "Custom dataset collection and preprocessing",
+          "price": 1499
+        },
+        {
+          "name": "Urgent 48-hour delivery",
+          "price": 1999
+        },
+        {
+          "name": "Extra revision after college review",
+          "price": 999
+        }
+      ],
+      "estimator": {
+        "basePrice": 2999,
+        "extraUnit": "module",
+        "pricePerUnit": 999,
+        "weeks": "1 week",
+        "priceSuffix": ""
+      },
+      "whoFor": [
+        "B.Tech / BE Computer Science, IT, and ECE students",
+        "BCA and MCA final-year students",
+        "Polytechnic / Diploma computer engineering students"
+      ],
+      "faqs": [
+        {
+          "q": "Will the project run on my laptop?",
+          "a": "Yes! We connect via Google Meet, AnyDesk, or TeamViewer and set up the code, database, and all required libraries directly on your laptop until it runs perfectly."
+        },
+        {
+          "q": "Do you provide project reports and presentation PPTs?",
+          "a": "Yes. Every project includes a comprehensive IEEE/college-compliant project report, synopsis, system architecture diagrams, ER diagrams, and presentation slides."
+        },
+        {
+          "q": "What if my college guide asks for changes after review?",
+          "a": "We provide complete support until your final project submission and will make modifications according to your guide's feedback."
+        },
+        {
+          "q": "Can you help me prepare for the external viva?",
+          "a": "Absolutely. We conduct a dedicated 1-on-1 walkthrough explaining how the code works, why specific technologies were chosen, and how to answer typical examiner questions."
+        }
+      ],
+      "related": [
+        "static-website-development",
+        "dynamic-website-development",
+        "mobile-app-development",
+        "ai-integrated-application-development"
+      ]
     }
   ],
   "process": [
@@ -1460,6 +1575,10 @@ const CONFIG = {
     {
       "q": "Do you build both low-cost solutions and advanced custom software?",
       "a": "Yes, that is our core mission. We believe every business deserves quality software. We provide low-cost launchpads starting at ₹4,999 for startups and local businesses, all the way to advanced custom software, mobile apps, desktop systems, and enterprise AI solutions priced transparently with fixed milestone quotes."
+    },
+    {
+      "q": "Do you build academic and final-year college projects for engineering students?",
+      "a": "Yes! We provide complete minor and major software projects for engineering (B.Tech/BE), BCA, MCA, and diploma students across Web, Mobile, AI/ML, Python, and Cloud. Every project includes 100% working source code, documentation report, synopsis, PPT, setup on your laptop, and 1-on-1 viva guidance so you score top marks."
     },
     {
       "q": "Static or dynamic website: which do I need?",
@@ -1903,6 +2022,175 @@ const CONFIG = {
         "100% code ownership: clean Git history, test suites, and ongoing maintenance"
       ]
     }
+  },
+  "careers": {
+    "title": "Careers at RKS Technology",
+    "subtitle": "Build scalable software that makes clients say wow. Work with real software engineers.",
+    "isOpen": true,
+    "noOpeningsMessage": "We do not have open positions right now, but we are always eager to meet exceptional software engineers, UI/UX designers, and problem solvers.",
+    "talentEmail": "rajanishsingh729@gmail.com",
+    "talentWhatsApp": "916390769785",
+    "perks": [
+      {
+        "icon": "🌐",
+        "title": "100% Remote Work",
+        "text": "Work from anywhere in India with flexible hours. We focus on output, clean code, and architectural thinking."
+      },
+      {
+        "icon": "📐",
+        "title": "Real Software Engineering",
+        "text": "We follow industry-standard software engineering: clean architecture, CI/CD, modular patterns, and automated testing."
+      },
+      {
+        "icon": "🚀",
+        "title": "High-Impact Real Products",
+        "text": "Build live products from scratch: web apps, mobile apps, 2D games, cloud infrastructure, and AI systems."
+      },
+      {
+        "icon": "📈",
+        "title": "Transparent & Fast Growth",
+        "text": "Direct mentorship with lead engineers, milestone bonuses, and long-term career progression."
+      },
+      {
+        "icon": "💻",
+        "title": "Modern Tech Stack",
+        "text": "Work with Flutter, React, Node.js, Python, Docker, cloud VPS, AI models, and modern developer tooling."
+      },
+      {
+        "icon": "🤝",
+        "title": "Zero Bureaucracy",
+        "text": "No corporate politics or endless meetings. Speak your mind, design solutions, and ship code."
+      }
+    ],
+    "values": [
+      {
+        "num": "01",
+        "title": "Process Over Quick Hacks",
+        "text": "We believe in systematic architecture, modular design, and robust tests—never quick throwaway AI copy-paste code."
+      },
+      {
+        "num": "02",
+        "title": "Extreme Transparency",
+        "text": "Everything is open: project tracking, task boards, source code, and client communication. No hidden agendas."
+      },
+      {
+        "num": "03",
+        "title": "Engineering Pride & Ownership",
+        "text": "You own the code you write. We take pride in building maintainable systems that scale to thousands of users."
+      }
+    ],
+    // ------------------------------------------------------------------------
+    // HOW TO ENABLE HIRING IN THE FUTURE:
+    // 1. Set "isOpen": true
+    // 2. Add job opening objects into "openings": [...] below (sample template provided)
+    // ------------------------------------------------------------------------
+    "openings": [
+      {
+        "id": "full-stack-engineer",
+        "title": "Full-Stack Software Engineer (React / Next.js + Node.js)",
+        "department": "Engineering",
+        "location": "100% Remote (India)",
+        "type": "Full-Time / Contract",
+        "experience": "0 - 3 Years / Freshers Welcome",
+        "description": "We are looking for a software engineer who values clean code, architectural discipline, and problem-solving over quick AI hacks. You will work on real client web applications, responsive SPAs, robust REST APIs, and production deployments.",
+        "responsibilities": [
+          "Develop modular, responsive web interfaces using React, Next.js, and modern CSS",
+          "Design robust backend REST APIs and database schemas (PostgreSQL / MongoDB / Firebase)",
+          "Write clean, documented, and testable code adhering to software engineering standards",
+          "Collaborate directly with our lead software engineers and UI/UX designers"
+        ],
+        "requirements": [
+          "Strong foundation in Data Structures, Algorithms, and clean architecture",
+          "Proficiency in JavaScript / TypeScript, Node.js, and modern React",
+          "Understanding of Git, version control, and CI/CD basics",
+          "Passion for building reliable software that scales"
+        ]
+      },
+      {
+        "id": "mobile-engineer",
+        "title": "Mobile Application Engineer (Flutter / Android / iOS)",
+        "department": "Mobile",
+        "location": "100% Remote (India)",
+        "type": "Full-Time / Contract",
+        "experience": "0 - 3 Years / Freshers Welcome",
+        "description": "Build high-performance cross-platform Android and iOS mobile applications. You will engineer smooth UI animations, offline data caching, push notifications, payment gateways, and Google AdMob monetization.",
+        "responsibilities": [
+          "Develop scalable cross-platform mobile apps using Flutter or native Android (Kotlin)",
+          "Integrate backend APIs, Firebase services, offline caching, and biometric authentication",
+          "Implement monetization via Google AdMob, banner/interstitial ads, and in-app purchases",
+          "Prepare, test, and package release builds for Google Play Store and Apple App Store"
+        ],
+        "requirements": [
+          "Hands-on experience with Dart & Flutter or Android development",
+          "Good understanding of state management (Bloc / Riverpod / Provider) and REST integration",
+          "Attention to UI detail, responsive layouts across phone screen sizes, and performance profiling",
+          "Familiarity with Play Console or App Store release pipelines is a plus"
+        ]
+      },
+      {
+        "id": "cloud-devops-engineer",
+        "title": "Backend & Cloud / DevOps Engineer (Python / Node.js / Docker / AWS)",
+        "department": "Cloud & DevOps",
+        "location": "100% Remote (India)",
+        "type": "Full-Time / Contract",
+        "experience": "0 - 3 Years",
+        "description": "Design and maintain high-reliability backend services, cloud servers, and CI/CD automation. You will containerize applications, manage VPS/cloud instances, configure reverse proxies (Nginx), and ensure zero downtime.",
+        "responsibilities": [
+          "Architect scalable backend microservices and APIs using Python (FastAPI/Django) or Node.js",
+          "Set up containerized environments with Docker and automated GitHub Actions CI/CD pipelines",
+          "Deploy, configure, and monitor production servers on AWS, GCP, DigitalOcean, or Hostinger VPS",
+          "Implement SSL certificates, database backups, security hardening, and performance monitoring"
+        ],
+        "requirements": [
+          "Strong knowledge of Linux command line, server administration, and networking basics",
+          "Experience with Docker, Nginx reverse proxy, and systemd service management",
+          "Familiarity with relational databases (PostgreSQL/MySQL) query tuning and indexing",
+          "Eagerness to automate manual deployments and maintain 99.9% uptime"
+        ]
+      },
+      {
+        "id": "ui-ux-designer",
+        "title": "UI/UX Designer (Figma / Web & Mobile Design Systems)",
+        "department": "Product Design",
+        "location": "100% Remote (India)",
+        "type": "Full-Time / Contract",
+        "experience": "0 - 3 Years / Freshers Welcome",
+        "description": "Craft intuitive user journeys, wireframes, accessible design tokens, and high-fidelity prototypes in Figma for web and mobile products. You will work closely with lead designer Ritik Pandey and engineering teams.",
+        "responsibilities": [
+          "Create user personas, wireframes, user flows, and interactive interactive Figma prototypes",
+          "Maintain and expand cohesive design systems, semantic typography scales, and token sets",
+          "Design accessible, mobile-first interfaces optimized for high contrast, touch targets, and readability",
+          "Handoff design specs and assets cleanly to frontend and mobile engineers"
+        ],
+        "requirements": [
+          "Proficiency in Figma (auto-layout, components, variants, variables, interactive prototyping)",
+          "A strong design portfolio showcasing clean, modern web or mobile app interfaces",
+          "Understanding of responsive design principles and design-to-code feasibility",
+          "Great visual eye for typography, color balance, micro-interactions, and hierarchy"
+        ]
+      },
+      {
+        "id": "ai-ml-engineer",
+        "title": "AI / ML Software Engineer (Python / LangChain / RAG / Computer Vision)",
+        "department": "AI Solutions",
+        "location": "100% Remote (India)",
+        "type": "Full-Time / Contract",
+        "experience": "0 - 3 Years",
+        "description": "Develop and deploy production-grade AI features including conversational chatbots, Retrieval-Augmented Generation (RAG) knowledge systems, document intelligence pipelines, and computer vision models.",
+        "responsibilities": [
+          "Build RAG pipelines connecting private business documents with vector embeddings (Chroma/FAISS)",
+          "Integrate modern LLM APIs (Gemini, OpenAI, Claude) with structured output and function calling",
+          "Implement evaluation benchmarks to prevent hallucinations and measure answer accuracy",
+          "Expose AI models as low-latency REST endpoints containerized with Docker"
+        ],
+        "requirements": [
+          "Proficiency in Python and AI libraries (LangChain / LlamaIndex / PyTorch / OpenCV)",
+          "Experience with vector databases, prompt engineering, and semantic search",
+          "Sound understanding of machine learning principles and API integration",
+          "Passion for shipping AI solutions that solve practical customer problems"
+        ]
+      }
+    ]
   }
 };
 
