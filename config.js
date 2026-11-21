@@ -2085,6 +2085,7 @@ const CONFIG = {
     // 2. Add job opening objects into "openings": [...] below (sample template provided)
     // ------------------------------------------------------------------------
     "openings": [
+      /*
       {
         "id": "full-stack-engineer",
         "title": "Full-Stack Software Engineer (React / Next.js + Node.js)",
@@ -2190,6 +2191,7 @@ const CONFIG = {
           "Passion for shipping AI solutions that solve practical customer problems"
         ]
       }
+        */
     ]
   }
 };
